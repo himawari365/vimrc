@@ -3,6 +3,8 @@ unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 " ファイルエンコーディングをUTF-8に設定
+set encoding=utf-8
+set fileencodings=utf-8,cp932,euc-jp,latin1
 set fileencoding=utf-8
 
 " 行番号を表示
