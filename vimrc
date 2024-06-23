@@ -47,38 +47,6 @@ set noswapfile
 " ノーマルモードへの移行をEscキーからjjキーに変更
 imap jj <Esc>
 
-" 括弧やクオーテーションを補完
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap < <><LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-
-inoremap { {}<LEFT>
-
-" 隣接した{}で改行したらインデント
-function! IndentBraces()
-    let line = getline('.')
-    let col = col('.')
-    let before_char = col > 1 ? line[col - 2] : ''
-    let current_char = line[col - 1]
-
-    if before_char == '{' && current_char == '}'
-        return "\<CR>\<C-o>O\<C-o>O\<C-o>==\<C-o>2k\<C-o>j\<C-o>==\<C-o>k\<C-o>l"
-    elseif before_char == '(' && current_char == ')'
-        return "\<CR>\<C-o>O\<C-o>O\<C-o>==\<C-o>2k\<C-o>j\<C-o>==\<C-o>k\<C-o>l"
-    elseif before_char == '[' && current_char == ']'
-        return "\<CR>\<C-o>O\<C-o>O\<C-o>==\<C-o>2k\<C-o>j\<C-o>==\<C-o>k\<C-o>l"
-    else
-        return "\<CR>"
-    endif
-endfunction
-
-inoremap <silent> <expr> <CR> IndentBraces()
-
-
-
 " プラグインの読み込み
 packadd! vim-airline
 packadd! vim-airline-themes
