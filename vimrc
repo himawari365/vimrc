@@ -12,6 +12,9 @@ set fileencoding=utf-8
 " マウス操作を無効化
 set mouse=
 
+" クリップボードを有効化
+set clipboard+=unnamed
+
 " 行番号を表示
 set number
 
